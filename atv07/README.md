@@ -2,6 +2,24 @@
 
 Projeto Java Maven com as telas de Login e Cadastro de Usuario (Atividades 04 a 07).
 
+# Estrutura do projeto
+src/
+└── main/
+    └── java/
+        └── br/
+            └── com/
+                └── ifba/
+                    ├── login/
+                    │   └── view/
+                    │       └── TelaLogin.java
+                    └── usuario/
+                        ├── entity/
+                        │   └── Usuario.java
+                        ├── validar/
+                        │   └── ValidadorUsuario.java
+                        └── view/
+                            └── TelaCadastroUsuario.java
+
 ## Como rodar
 mvn compile exec:java -Dexec.mainClass=br.com.ifba.login.view.TelaLogin
 (ou importe como projeto Maven na sua IDE e rode a classe TelaLogin)
