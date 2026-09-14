@@ -1,0 +1,15 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	renamed:    TelaLogin.java -> src/main/java/br/com/ifba/login/view/TelaLogin.java
+#	renamed:    Usuario.java -> src/main/java/br/com/ifba/usuario/entity/Usuario.java
+#	renamed:    ValidadorUsuario.java -> src/main/java/br/com/ifba/usuario/validar/ValidadorUsuario.java
+#	renamed:    TelaCadastroUsuario.java -> src/main/java/br/com/ifba/usuario/view/TelaCadastroUsuario.java
+#	new file:   target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+#	new file:   target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+#
