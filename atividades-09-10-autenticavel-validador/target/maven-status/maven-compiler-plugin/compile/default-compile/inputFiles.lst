@@ -1,0 +1,5 @@
+/workspaces/prg03AnaCarolinaEstev-o/atividades-09-10-autenticavel-validador/src/main/java/br/com/ifba/login/view/TelaLogin.java
+/workspaces/prg03AnaCarolinaEstev-o/atividades-09-10-autenticavel-validador/src/main/java/br/com/ifba/usuario/entity/Usuario.java
+/workspaces/prg03AnaCarolinaEstev-o/atividades-09-10-autenticavel-validador/src/main/java/br/com/ifba/usuario/interfaces/Autenticavel.java
+/workspaces/prg03AnaCarolinaEstev-o/atividades-09-10-autenticavel-validador/src/main/java/br/com/ifba/usuario/validar/ValidadorUsuario.java
+/workspaces/prg03AnaCarolinaEstev-o/atividades-09-10-autenticavel-validador/src/main/java/br/com/ifba/usuario/view/TelaCadastroUsuario.java
