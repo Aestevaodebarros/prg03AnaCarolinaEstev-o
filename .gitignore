@@ -1,0 +1,7 @@
+# Arquivos gerados pela compilação do Maven
+**/target/
+**/*.class
+
+# Arquivos de configuração local do editor
+.idea/
+.vscode/
