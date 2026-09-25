@@ -1,0 +1,34 @@
+Test set: br.com.ifba.academico.entity.CursoTest
+  [OK]   cursoRecemCriadoNaoTemDisciplinas
+  [OK]   adicionarDisciplinaFazAListaCrescer
+  [OK]   getDisciplinasDevolveOObjetoRelacionado
+  [OK]   listaDevolvidaPeloGetterNaoPodeSerAlteradaPorFora
+Tests run: 4, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.AlunoTurmasTest
+  [OK]   listaDevolvidaPeloGetterNaoPodeSerAlteradaPorFora
+  [OK]   alunoRecemCriadoNaoTemTurmas
+  [OK]   adicionarTurmaFazAListaCrescer
+  [OK]   getTurmasDevolveATurmaRelacionada
+Tests run: 4, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.UsuarioStatusEnderecoTest
+  [OK]   usuarioRecemCriadoNasceComStatusAtivo
+  [OK]   usuarioInativoNaoConsegueAutenticar
+  [OK]   usuarioSemEnderecoDevolveNuloNoGetter
+  [OK]   getEnderecoDevolveOObjetoDefinidoPeloSetter
+  [OK]   usuarioAtivoComCredenciaisCorretasAutentica
+Tests run: 5, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.UsuarioHerancaTest
+  [OK]   alunoEProfessorDevolvemPerfisDiferentesParaOMesmoMetodo
+  [OK]   alunoUsaSaudacaoHerdadaDeUsuarioSemAlteracao
+  [OK]   professorUsaSaudacaoHerdadaDeUsuarioSemAlteracao
+  [OK]   alunoESaudacaoDoUsuarioGenericoTemOMesmoFormato
+  [OK]   alunoSobrescreveDescreverPerfilComMatriculaECurso
+  [OK]   professorSobrescreveDescreverPerfilComSiape
+  [OK]   professorComTurmaReflenteAQuantidadeNoPerfilSobrescrito
+Tests run: 7, Failures: 0
+-------------------------------------------------------------------------------
+
+TOTAL - Tests run: 20, Failures: 0
