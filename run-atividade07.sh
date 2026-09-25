@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Script de execução da atividade 09/10.
-# A aplicação usa Swing, então o Java é executado dentro de um Xvfb para
-# funcionar corretamente em ambiente sem desktop gráfico.
+# Script de execução da atividade 07.
+# A aplicação da tela de login usa Swing, portanto o processo é iniciado com
+# Xvfb em ambientes Linux sem interface gráfica nativa.
 set -e
 
 cd "$(dirname "$0")"
 
-PROJECT_DIR="atividades-09-10-autenticavel-validador"
+PROJECT_DIR="atv07"
 MAIN_CLASS="br.com.ifba.login.view.TelaLogin"
 
 if [[ ! -d "$PROJECT_DIR" ]]; then
