@@ -15,6 +15,9 @@ run_script() {
 case "$TARGET" in
   all)
     run_script "run-atividade07.sh"
+    run_script "run-atividade08.sh"
+    run_script "run-atividade09-10.sh"
+    run_script "run-atividade12.sh"
     ;;
   07|atividade07|atividade-07)
     run_script "run-atividade07.sh"
