@@ -72,10 +72,13 @@ public class Usuario implements Autenticavel {
      * saber se o acesso deve ser liberado.
      */
     @Override
-    public boolean autenticar(String login, String senha) {
+    public String autenticar(String login, String senha) {
         if (login == null || senha == null) {
-            return false;
+            return "Credenciais invalidas";
         }
-        return login.equals(this.login) && senha.equals(this.senha);
+        if (login.equals(this.login) && senha.equals(this.senha)) {
+            return "Bem-vindo, " + this.login;
+        }
+        return "Credenciais invalidas";
     }
 }

@@ -1,6 +1,7 @@
 package br.com.ifba.login.view;
 
 import br.com.ifba.usuario.entity.Usuario;
+import br.com.ifba.usuario.interfaces.Autenticavel;
 import br.com.ifba.usuario.view.TelaCadastroUsuario;
 
 import javax.swing.*;
@@ -124,22 +125,23 @@ public class TelaLogin extends JFrame {
         String senhaDigitada = new String(txtSenha.getPassword());
 
         // 2. instancia o objeto de dominio com os dados digitados
-        Usuario usuario = new Usuario(loginDigitado, senhaDigitada);
+        Autenticavel usuario = new Usuario(loginDigitado, senhaDigitada);
 
-        // 3. usa os dados vindos do objeto (via getters) para montar o label
+        // 3. exibe os dados digitados no label de resultado
         lblResultado.setText(
-                "<html>Login digitado: " + usuario.getLogin() + "<br>"
-                        + "Senha digitada: " + usuario.getSenha() + "</html>"
+                "<html>Login digitado: " + loginDigitado + "<br>"
+                + "Senha digitada: " + senhaDigitada + "</html>"
         );
 
         // 4. [Atividade 09 - Task 04] usa a interface Autenticavel para
         // decidir se o acesso e liberado ou negado, sem nunca acessar
         // usuario.login / usuario.senha diretamente (eles sao private).
-        if (usuario.autenticar(loginDigitado, senhaDigitada)) {
-            JOptionPane.showMessageDialog(this, "Acesso liberado!",
+        String resultado = usuario.autenticar(loginDigitado, senhaDigitada);
+        if (!"Credenciais invalidas".equals(resultado)) {
+            JOptionPane.showMessageDialog(this, resultado,
                     "Login", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Acesso negado!",
+            JOptionPane.showMessageDialog(this, resultado,
                     "Login", JOptionPane.ERROR_MESSAGE);
         }
     }
