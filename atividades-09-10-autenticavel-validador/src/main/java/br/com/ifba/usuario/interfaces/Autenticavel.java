@@ -12,7 +12,7 @@ public interface Autenticavel {
      *
      * @param login login informado
      * @param senha senha informada
-     * @return true se as credenciais forem validas, false caso contrario
+    * @return mensagem de sucesso ou de credenciais invalidas
      */
-    boolean autenticar(String login, String senha);
+    String autenticar(String login, String senha);
 }

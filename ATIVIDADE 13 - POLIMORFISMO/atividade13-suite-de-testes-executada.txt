@@ -1,0 +1,13 @@
+Atividade 13 - Polimorfismo
+
+Comando executado:
+mvn -f atividades-09-10-autenticavel-validador/pom.xml test
+
+Resultado da suíte completa: BUILD SUCCESS
+Testes executados: 23
+Falhas: 0
+Erros: 0
+Ignorados: 0
+
+UsuarioAutenticacaoTest: 3 testes aprovados
+ValidadorUsuarioTest: 20 testes aprovados
