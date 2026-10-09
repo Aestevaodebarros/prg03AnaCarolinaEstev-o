@@ -1,0 +1,50 @@
+Test set: br.com.ifba.academico.entity.CursoTest
+  [OK]   cursoRecemCriadoNaoTemDisciplinas
+  [OK]   adicionarDisciplinaFazAListaCrescer
+  [OK]   getDisciplinasDevolveOObjetoRelacionado
+  [OK]   listaDevolvidaPeloGetterNaoPodeSerAlteradaPorFora
+Tests run: 4, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.AlunoTurmasTest
+  [OK]   listaDevolvidaPeloGetterNaoPodeSerAlteradaPorFora
+  [OK]   alunoRecemCriadoNaoTemTurmas
+  [OK]   adicionarTurmaFazAListaCrescer
+  [OK]   getTurmasDevolveATurmaRelacionada
+Tests run: 4, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.UsuarioStatusEnderecoTest
+  [OK]   usuarioRecemCriadoNasceComStatusAtivo
+  [OK]   usuarioSemEnderecoDevolveNuloNoGetter
+  [OK]   getEnderecoDevolveOObjetoDefinidoPeloSetter
+  [OK]   usuarioInativoNaoConsegueAutenticar
+  [OK]   usuarioAtivoComCredenciaisCorretasAutentica
+Tests run: 5, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.UsuarioHerancaTest
+  [OK]   alunoEProfessorDevolvemPerfisDiferentesParaOMesmoMetodo
+  [OK]   alunoUsaSaudacaoHerdadaDeUsuarioSemAlteracao
+  [OK]   professorUsaSaudacaoHerdadaDeUsuarioSemAlteracao
+  [OK]   alunoESaudacaoDoUsuarioGenericoTemOMesmoFormato
+  [OK]   alunoSobrescreveDescreverPerfilComMatriculaECurso
+  [OK]   professorSobrescreveDescreverPerfilComSiape
+  [OK]   professorComTurmaReflenteAQuantidadeNoPerfilSobrescrito
+Tests run: 7, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.PolimorfismoAutenticacaoTest
+  [OK]   usuarioComumAutenticaPeloProprioCanal
+  [OK]   administradorAutenticaDeFormaDiferente
+  [OK]   usuarioComumComCredenciaisErradasNaoAutentica
+  [OK]   administradorComCredenciaisErradasNaoAutentica
+  [OK]   processarFuncionaParaQualquerAutenticavelSemSaberQualClasseE
+  [OK]   alunoUsaAutenticarHerdadoDeUsuarioAtravesDoTipoGeral
+Tests run: 6, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.repositorio.RepositorioUsuarioEmMemoriaTest
+  [OK]   cadastraUmUsuarioEEleApareceEmListarTodos
+  [OK]   cadastraDoisEBuscarPorLoginDevolveOCerto
+  [OK]   buscarPorLoginComUmLoginQueNaoExisteDevolveNulo
+  [OK]   doisObjetosDiferentesComOMesmoLoginSaoIguaisParaALista
+Tests run: 4, Failures: 0
+-------------------------------------------------------------------------------
+
+TOTAL - Tests run: 30, Failures: 0
