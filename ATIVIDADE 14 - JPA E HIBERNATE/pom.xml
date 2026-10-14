@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Ajuste o artifactId para prg03[seu_nome], ex.: prg03jonatasfbastos -->
+    <groupId>br.com.ifba</groupId>
+    <artifactId>prg03aluno</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.jupiter.version>5.10.1</junit.jupiter.version>
+    </properties>
+
+    <dependencies>
+        <!-- JUnit 5 (Atividade 10) - usado apenas em src/test -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Atividade 14 - Task 01: Hibernate como provider de JPA.
+             Versao 5.6.x porque ainda fala a API javax.persistence
+             (compativel com o restante do projeto em Java 11; a partir
+             do Hibernate 6 a API muda para jakarta.persistence). -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.15.Final</version>
+        </dependency>
+
+        <!-- Atividade 14 - Task 01: driver JDBC do banco usado em
+             persistence.xml (ajuste para o driver do seu banco se nao
+             for MySQL, ex.: org.postgresql:postgresql). -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>prg03aluno</finalName>
+        <plugins>
+            <!-- Gera um jar executavel, apontando para a Tela de Login como classe principal -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>br.com.ifba.login.view.TelaLogin</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!-- Necessario para o Maven rodar testes JUnit 5 (Platform) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
