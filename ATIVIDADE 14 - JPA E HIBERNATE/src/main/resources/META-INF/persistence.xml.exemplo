@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Atividade 14 - Task 01: modelo de persistence.xml.
+
+    Este arquivo NAO contem credenciais reais - é o que fica versionado
+    no repositorio. Copie-o para "persistence.xml" (mesma pasta,
+    META-INF) e preencha usuario/senha/url com os dados da SUA conexao
+    local. O persistence.xml real (com as credenciais) esta no
+    .gitignore e nunca deve ser commitado.
+-->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="prg03aluno-pu" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Atividade 14 - Task 02: entidade mapeada com @Entity -->
+        <class>br.com.ifba.usuario.entity.Usuario</class>
+
+        <properties>
+            <!-- Dados de conexao - preencha com os dados do SEU banco local -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/prg03_aluno?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.user" value=""/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+            <!-- Dialeto do Hibernate para MySQL 8 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+
+            <!-- "update": cria/ajusta as tabelas automaticamente a partir das
+                 entidades anotadas, sem apagar dados existentes. Util em
+                 desenvolvimento; evite em producao. -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Mostra o SQL gerado no console - ajuda a conferir o
+                 mapeamento das colunas enquanto a Atividade 14 e feita. -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
