@@ -1,0 +1,65 @@
+ATIVIDADE 17 - CRUD COM JPA (tratamento de erros) - evidencia de execucao real
+================================================================================
+
+Compilacao completa (src/main + src/test), Java 11, com stubs locais de
+javax.persistence (anotacoes + um EntityManager/EntityManagerFactory/
+EntityTransaction/TypedQuery "de mentira", com persist/merge/remove e um
+pequeno interpretador das poucas JPQL usadas no projeto) e de JUnit 5, ja que
+o Maven Central nao e alcancavel neste sandbox. O pom.xml entregue declara as
+dependencias REAIS (hibernate-core + mysql-connector-java) para build normal
+fora daqui.
+
+Test set: br.com.ifba.academico.entity.CursoTest
+  [OK]   cursoRecemCriadoNaoTemDisciplinas
+  [OK]   adicionarDisciplinaFazAListaCrescer
+  [OK]   getDisciplinasDevolveOObjetoRelacionado
+  [OK]   listaDevolvidaPeloGetterNaoPodeSerAlteradaPorFora
+Tests run: 4, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.AlunoTurmasTest
+  [OK]   listaDevolvidaPeloGetterNaoPodeSerAlteradaPorFora
+  [OK]   alunoRecemCriadoNaoTemTurmas
+  [OK]   adicionarTurmaFazAListaCrescer
+  [OK]   getTurmasDevolveATurmaRelacionada
+Tests run: 4, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.UsuarioStatusEnderecoTest
+  [OK]   usuarioRecemCriadoNasceComStatusAtivo
+  [OK]   usuarioSemEnderecoDevolveNuloNoGetter
+  [OK]   getEnderecoDevolveOObjetoDefinidoPeloSetter
+  [OK]   usuarioInativoNaoConsegueAutenticar
+  [OK]   usuarioAtivoComCredenciaisCorretasAutentica
+Tests run: 5, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.UsuarioHerancaTest
+  [OK]   alunoEProfessorDevolvemPerfisDiferentesParaOMesmoMetodo
+  [OK]   alunoUsaSaudacaoHerdadaDeUsuarioSemAlteracao
+  [OK]   professorUsaSaudacaoHerdadaDeUsuarioSemAlteracao
+  [OK]   alunoESaudacaoDoUsuarioGenericoTemOMesmoFormato
+  [OK]   alunoSobrescreveDescreverPerfilComMatriculaECurso
+  [OK]   professorSobrescreveDescreverPerfilComSiape
+  [OK]   professorComTurmaReflenteAQuantidadeNoPerfilSobrescrito
+Tests run: 7, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.entity.PolimorfismoAutenticacaoTest
+  [OK]   usuarioComumAutenticaPeloProprioCanal
+  [OK]   administradorAutenticaDeFormaDiferente
+  [OK]   usuarioComumComCredenciaisErradasNaoAutentica
+  [OK]   administradorComCredenciaisErradasNaoAutentica
+  [OK]   processarFuncionaParaQualquerAutenticavelSemSaberQualClasseE
+  [OK]   alunoUsaAutenticarHerdadoDeUsuarioAtravesDoTipoGeral
+Tests run: 6, Failures: 0
+-------------------------------------------------------------------------------
+Test set: br.com.ifba.usuario.repositorio.RepositorioUsuarioTest
+  [OK]   cadastrarGravaEListarTodosTraz
+  [OK]   buscarPorLoginEncontraQuemFoiCadastrado
+  [OK]   buscarPorLoginComLoginInexistenteDevolveNulo
+  [OK]   buscarPorLoginOuFalharLancaExcecaoParaLoginInexistente
+  [OK]   buscarPorLoginOuFalharNaoLancaExcecaoQuandoUsuarioExiste
+  [OK]   editarAtualizaOsCamposNoBanco
+  [OK]   removerFazOUsuarioSumirDoBanco
+  [OK]   buscarPorTermoEncontraPorLoginOuPorNome
+Tests run: 8, Failures: 0
+-------------------------------------------------------------------------------
+
+TOTAL - Tests run: 34, Failures: 0
