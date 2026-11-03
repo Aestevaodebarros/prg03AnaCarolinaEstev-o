@@ -28,8 +28,8 @@ ao DAO genérico, preservando as consultas específicas por login e termo.
 
 ## Validação
 
-`mvn test -DskipTests` compila as 22 classes principais e as 6 classes de
-teste. A suíte não foi executada porque o repositório contém apenas
-`persistence.xml.exemplo`, conforme a orientação de não versionar credenciais
-reais; sem um `persistence.xml` local e um banco configurado, os testes de JPA
-não conseguem inicializar a unidade de persistência.
+O perfil de teste usa H2 em memória por meio de
+`src/test/resources/META-INF/persistence.xml`; a configuração de produção e
+`persistence.xml.exemplo` não foram alterados. `mvn test` executou 35 testes,
+com zero falhas ou erros. A saída está registrada em
+`atividade19-suite-de-testes-executada.txt`.

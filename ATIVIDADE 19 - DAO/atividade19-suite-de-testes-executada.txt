@@ -1,0 +1,8 @@
+Comando: mvn test
+Resultado: BUILD SUCCESS
+Testes executados: 35
+Falhas: 0
+Erros: 0
+Ignorados: 0
+Banco de teste: H2 em memória (prg03aluno-pu)
+Data: 2026-11-03
