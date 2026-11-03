@@ -162,4 +162,5 @@ Detalhes completos em `atividade17-justificativa-pr.md`. Resumo:
 - `GenericDao` define `save`, `update`, `delete`, `findById` e `findAll`; `GenericDaoImpl` implementa as operações JPA com transação, rollback e fechamento do `EntityManager`.
 - `RepositorioUsuario` herda a implementação genérica para o CRUD e mantém suas consultas específicas por login e termo.
 - Falhas de escrita são encapsuladas em `PersistenciaException`.
-- Credenciais reais não são versionadas; o projeto mantém somente `persistence.xml.exemplo`.
+- Testes usam H2 em memória e configuração isolada em `src/test/resources/META-INF/persistence.xml`; `mvn test` passa com 35 testes.
+- Credenciais reais não são versionadas; a configuração de produção mantém somente `persistence.xml.exemplo`.
