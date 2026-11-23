@@ -6,6 +6,7 @@ import br.com.ifba.usuario.repositorio.RepositorioUsuario;
 import br.com.ifba.usuario.validar.ValidadorUsuario;
 
 import javax.swing.*;
+import org.springframework.stereotype.Component;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
@@ -28,6 +29,7 @@ import java.awt.event.ActionEvent;
  *
  * Senha é opcional aqui: deixar em branco mantém a senha atual.
  */
+@Component
 public class TelaEditarUsuario extends JFrame {
 
     private final RepositorioUsuario repositorio = new RepositorioUsuario();
@@ -52,6 +54,10 @@ public class TelaEditarUsuario extends JFrame {
      *                                        tela trata no bloco abaixo e
      *                                        se fecha sozinha.
      */
+    public TelaEditarUsuario() {
+        this.usuario = null;
+    }
+
     public TelaEditarUsuario(String login) {
         Usuario usuarioCarregado;
         try {

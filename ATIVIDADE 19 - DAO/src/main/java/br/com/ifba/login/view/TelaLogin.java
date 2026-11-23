@@ -8,6 +8,7 @@ import br.com.ifba.usuario.view.TelaListarUsuarios;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
+import org.springframework.stereotype.Component;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
@@ -17,6 +18,7 @@ import java.awt.event.WindowEvent;
 /**
  * Tela de Login do Sistema Academico.
  */
+@Component
 public class TelaLogin extends JFrame {
 
     private JTextField txtLogin;
@@ -53,7 +55,7 @@ public class TelaLogin extends JFrame {
         JPanel painelTopo = new JPanel();
         painelTopo.setLayout(new BoxLayout(painelTopo, BoxLayout.Y_AXIS));
         JLabel lblLogo = new JLabel("SA", SwingConstants.CENTER);
-        lblLogo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lblLogo.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
         lblLogo.setFont(new Font("Arial", Font.BOLD, 28));
         lblLogo.setForeground(Color.WHITE);
         lblLogo.setOpaque(true);
@@ -63,7 +65,7 @@ public class TelaLogin extends JFrame {
         lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 
         JLabel lblNomeSistema = new JLabel("Sistema Academico", SwingConstants.CENTER);
-        lblNomeSistema.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lblNomeSistema.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
         lblNomeSistema.setFont(new Font("Arial", Font.BOLD, 14));
 
         JPanel painelLogoWrapper = new JPanel();

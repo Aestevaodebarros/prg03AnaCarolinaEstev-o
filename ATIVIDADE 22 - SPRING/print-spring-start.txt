@@ -1,0 +1,37 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24604 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] 
+[INFO] -----------------------< br.com.ifba:prg03aluno >-----------------------
+[INFO] Building prg03aluno 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Could not transfer metadata /.meta/prefixes.txt from/to jvnet-nexus-releases (https://maven.java.net/content/repositories/releases/): (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- exec:3.7.0:java (default-cli) @ prg03aluno ---
+[INFO] Loaded 50 auto-discovered prefixes for remote repository ow2-snapshot (prefixes-ow2-snapshot.txt)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-11-23T23:49:17.791Z  INFO 17146 --- [lication.main()] br.com.ifba.ProjetoApplication           : Starting ProjetoApplication using Java 25.0.5.0.2 with PID 17146 (/workspaces/prg03AnaCarolinaEstev-o/ATIVIDADE 19 - DAO/target/classes started by codespace in /workspaces/prg03AnaCarolinaEstev-o/ATIVIDADE 19 - DAO)
+2026-11-23T23:49:17.794Z  INFO 17146 --- [lication.main()] br.com.ifba.ProjetoApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-11-23T23:49:18.970Z  INFO 17146 --- [lication.main()] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: prg03aluno-pu]
+2026-11-23T23:49:19.040Z  INFO 17146 --- [lication.main()] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2026-11-23T23:49:19.238Z  INFO 17146 --- [lication.main()] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-11-23T23:49:19.491Z  WARN 17146 --- [lication.main()] org.hibernate.orm.connections.pooling    : HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-11-23T23:49:19.499Z  INFO 17146 --- [lication.main()] org.hibernate.orm.connections.pooling    : HHH10001005: using driver [org.h2.Driver] at URL [jdbc:h2:mem:atividade19;DB_CLOSE_DELAY=-1;MODE=MySQL]
+2026-11-23T23:49:19.506Z  INFO 17146 --- [lication.main()] org.hibernate.orm.connections.pooling    : HHH10001001: Connection properties: {user=sa, password=****}
+2026-11-23T23:49:19.507Z  INFO 17146 --- [lication.main()] org.hibernate.orm.connections.pooling    : HHH10001003: Autocommit mode: false
+2026-11-23T23:49:19.515Z  INFO 17146 --- [lication.main()] .c.i.DriverManagerConnectionProviderImpl : HHH000115: Hibernate connection pool size: 20 (min=1)
+2026-11-23T23:49:19.723Z  INFO 17146 --- [lication.main()] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2026-11-23T23:49:20.379Z  INFO 17146 --- [lication.main()] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3ec399a2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-11-23T23:49:20.385Z  INFO 17146 --- [lication.main()] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@90870c6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-11-23T23:49:20.401Z  INFO 17146 --- [lication.main()] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-11-23T23:49:20.719Z  INFO 17146 --- [lication.main()] br.com.ifba.ProjetoApplication           : Started ProjetoApplication in 3.356 seconds (process running for 8.162)

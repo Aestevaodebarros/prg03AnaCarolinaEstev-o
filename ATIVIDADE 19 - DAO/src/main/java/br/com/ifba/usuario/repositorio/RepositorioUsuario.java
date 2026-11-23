@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Objects;
+import org.springframework.stereotype.Repository;
 
 /**
  * Atividade 17 - "CRUD completo com tratamento de erros".
@@ -25,7 +26,8 @@ import java.util.Objects;
  * {@link EntityManager}. Este repositório mantém as consultas específicas
  * do domínio de usuários.
  */
-public class RepositorioUsuario implements GenericDao<Usuario> {
+@Repository
+public class RepositorioUsuario implements GenericDao<Usuario>, UsuarioDao {
 
     private final GenericDao<Usuario> dao;
 

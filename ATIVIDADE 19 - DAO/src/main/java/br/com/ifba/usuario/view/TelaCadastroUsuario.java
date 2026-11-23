@@ -6,6 +6,7 @@ import br.com.ifba.usuario.repositorio.RepositorioUsuario;
 import br.com.ifba.usuario.validar.ValidadorUsuario;
 
 import javax.swing.*;
+import org.springframework.stereotype.Component;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
@@ -22,6 +23,7 @@ import java.awt.event.ActionEvent;
  * objeto repositório — qualquer instância de RepositorioUsuario enxerga
  * os mesmos dados, porque todas usam a mesma fábrica (JPAUtil).
  */
+@Component
 public class TelaCadastroUsuario extends JFrame {
 
     private JTextField txtNome;
