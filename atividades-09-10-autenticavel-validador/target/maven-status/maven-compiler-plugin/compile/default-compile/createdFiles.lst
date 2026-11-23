@@ -1,6 +1,7 @@
-br/com/ifba/login/view/TelaLogin$1.class
 br/com/ifba/usuario/interfaces/Autenticavel.class
 br/com/ifba/login/view/TelaLogin.class
 br/com/ifba/usuario/entity/Usuario.class
-br/com/ifba/usuario/validar/ValidadorUsuario.class
 br/com/ifba/usuario/view/TelaCadastroUsuario.class
+br/com/ifba/usuario/entity/Administrador.class
+br/com/ifba/login/view/TelaLogin$1.class
+br/com/ifba/usuario/validar/ValidadorUsuario.class

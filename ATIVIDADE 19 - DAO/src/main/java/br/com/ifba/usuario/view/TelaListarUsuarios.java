@@ -6,6 +6,7 @@ import br.com.ifba.usuario.repositorio.RepositorioUsuario;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import org.springframework.stereotype.Component;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ import java.util.List;
  * Atividade 14 - Task 02/Task 06: a tabela mostra só login, nome, email e
  * status — nunca cpf, dataNascimento ou senha (ver RETROSPECTIVA.md).
  */
+@Component
 public class TelaListarUsuarios extends JFrame {
 
     private static final String[] COLUNAS = {"Login", "Nome", "Email", "Status"};
