@@ -1,5 +1,6 @@
 package br.com.ifba.usuario.repositorio;
 
+import br.com.ifba.infrastructure.dao.GenericDao;
 import br.com.ifba.infrastructure.dao.GenericDaoImpl;
 import br.com.ifba.infrastructure.util.JPAUtil;
 import br.com.ifba.usuario.entity.Usuario;
@@ -8,6 +9,7 @@ import br.com.ifba.usuario.exception.UsuarioNaoEncontradoException;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Atividade 17 - "CRUD completo com tratamento de erros".
@@ -18,15 +20,46 @@ import java.util.List;
  * INTERIOR mudou, de uma {@code List}/{@code HashMap} em memória para
  * {@link EntityManager} de verdade.
  *
- * As operações CRUD comuns são delegadas a {@link GenericDaoImpl}, que
+ * As operações CRUD comuns são delegadas ao contrato {@link GenericDao}, que
  * concentra o controle de transação, rollback e fechamento do
  * {@link EntityManager}. Este repositório mantém as consultas específicas
  * do domínio de usuários.
  */
-public class RepositorioUsuario extends GenericDaoImpl<Usuario> {
+public class RepositorioUsuario implements GenericDao<Usuario> {
+
+    private final GenericDao<Usuario> dao;
 
     public RepositorioUsuario() {
-        super(Usuario.class);
+        this(new GenericDaoImpl<>(Usuario.class));
+    }
+
+    public RepositorioUsuario(GenericDao<Usuario> dao) {
+        this.dao = Objects.requireNonNull(dao, "dao não pode ser nulo");
+    }
+
+    @Override
+    public void save(Usuario usuario) {
+        dao.save(usuario);
+    }
+
+    @Override
+    public void update(Usuario usuario) {
+        dao.update(usuario);
+    }
+
+    @Override
+    public void delete(Usuario usuario) {
+        dao.delete(usuario);
+    }
+
+    @Override
+    public Usuario findById(Long id) {
+        return dao.findById(id);
+    }
+
+    @Override
+    public List<Usuario> findAll() {
+        return dao.findAll();
     }
 
     /**
@@ -78,8 +111,8 @@ public class RepositorioUsuario extends GenericDaoImpl<Usuario> {
             TypedQuery<Usuario> query = em.createQuery(
                     "SELECT u FROM Usuario u WHERE LOWER(u.login) = LOWER(:login)", Usuario.class);
             query.setParameter("login", login);
-            List<Usuario> resultado = query.getResultList();
-            return resultado.isEmpty() ? null : resultado.get(0);
+            List<Usuario> usuariosEncontrados = query.getResultList();
+            return usuariosEncontrados.isEmpty() ? null : usuariosEncontrados.get(0);
         } finally {
             em.close();
         }
