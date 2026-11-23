@@ -75,7 +75,7 @@ public class TelaCadastroUsuario extends JFrame {
 
         JButton btnCadastrar = new JButton("Cadastrar");
         JButton btnCancelar = new JButton("Cancelar");
-        btnCadastrar.addActionListener(this::btnCadastrarActionPerformed);
+        btnCadastrar.addActionListener(this::cadastrarUsuario);
         btnCancelar.addActionListener(this::btnCancelarActionPerformed);
 
         JPanel painelBotoes = new JPanel();
@@ -102,12 +102,7 @@ public class TelaCadastroUsuario extends JFrame {
         painel.add(campo, c);
     }
 
-    // metodo chamado ao clicar no botao Cadastrar
-    // [Atividade 10 - Task 02] este listener apenas captura os dados da tela,
-    // chama as validacoes de ValidadorUsuario e exibe a mensagem
-    // correspondente. Nenhuma regra de negocio (o que e um CPF valido, o
-    // que e uma senha forte, etc.) fica aqui dentro.
-    private void btnCadastrarActionPerformed(ActionEvent e) {
+    private void cadastrarUsuario(ActionEvent evento) {
 
         // 1. captura o que foi digitado nos campos
         String nome = txtNome.getText();

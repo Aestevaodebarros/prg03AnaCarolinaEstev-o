@@ -1,8 +1,12 @@
 package br.com.ifba.usuario.repositorio;
 
+import br.com.ifba.infrastructure.dao.GenericDaoImpl;
+import br.com.ifba.infrastructure.util.JPAUtil;
 import br.com.ifba.usuario.entity.Usuario;
 import br.com.ifba.usuario.exception.UsuarioNaoEncontradoException;
 import org.junit.jupiter.api.Test;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * {@link UsuarioNaoEncontradoException}, além do CRUD básico via
  * {@link RepositorioUsuario} (persist/merge/remove/JPQL).
  *
- * Cada teste usa um login único (gerado por {@link #loginUnico()}) porque
+ * Cada teste usa um login único (gerado por {@link #gerarLoginUnico()}) porque
  * o EntityManagerFactory de JPAUtil é compartilhado por toda a suíte — um
  * "banco" só, assim como aconteceria com um banco de verdade entre vários
  * testes que não se isolam em transações próprias.
@@ -25,15 +29,15 @@ class RepositorioUsuarioTest {
 
     private final RepositorioUsuario repositorio = new RepositorioUsuario();
 
-    private static int contador = 0;
+    private static int proximoSufixoLogin = 0;
 
-    private String loginUnico() {
-        return "usuario_teste_" + (contador++);
+    private String gerarLoginUnico() {
+        return "usuario_teste_" + (proximoSufixoLogin++);
     }
 
     @Test
     void cadastrarGravaEListarTodosTraz() {
-        String login = loginUnico();
+        String login = gerarLoginUnico();
         Usuario usuario = new Usuario("Fulano de Tal", "11122233344", "Masculino",
                 "1999-01-01", "77988887777", "fulano@ifba.edu.br", login, "senhaForte1");
 
@@ -44,7 +48,7 @@ class RepositorioUsuarioTest {
 
     @Test
     void buscarPorLoginEncontraQuemFoiCadastrado() {
-        String login = loginUnico();
+        String login = gerarLoginUnico();
         repositorio.cadastrar(new Usuario("Ciclana", "22233344455", "Feminino",
                 "2000-02-02", "77977776666", "ciclana@ifba.edu.br", login, "senhaForte1"));
 
@@ -75,7 +79,7 @@ class RepositorioUsuarioTest {
      */
     @Test
     void buscarPorLoginOuFalharNaoLancaExcecaoQuandoUsuarioExiste() {
-        String login = loginUnico();
+        String login = gerarLoginUnico();
         repositorio.cadastrar(new Usuario("Beltrano", "33344455566", "Masculino",
                 "1998-03-03", "77966665555", "beltrano@ifba.edu.br", login, "senhaForte1"));
 
@@ -84,7 +88,7 @@ class RepositorioUsuarioTest {
 
     @Test
     void editarAtualizaOsCamposNoBanco() {
-        String login = loginUnico();
+        String login = gerarLoginUnico();
         Usuario usuario = new Usuario("Nome Antigo", "44455566677", "Masculino",
                 "1997-04-04", "77955554444", "antigo@ifba.edu.br", login, "senhaForte1");
         repositorio.cadastrar(usuario);
@@ -100,7 +104,7 @@ class RepositorioUsuarioTest {
 
     @Test
     void removerFazOUsuarioSumirDoBanco() {
-        String login = loginUnico();
+        String login = gerarLoginUnico();
         Usuario usuario = new Usuario("Para Remover", "55566677788", "Feminino",
                 "1996-05-05", "77944443333", "remover@ifba.edu.br", login, "senhaForte1");
         repositorio.cadastrar(usuario);
@@ -114,7 +118,7 @@ class RepositorioUsuarioTest {
 
     @Test
     void buscarPorTermoEncontraPorLoginOuPorNome() {
-        String login = loginUnico();
+        String login = gerarLoginUnico();
         repositorio.cadastrar(new Usuario("Joana Termo", "66677788899", "Feminino",
                 "1995-06-06", "77933332222", "joana@ifba.edu.br", login, "senhaForte1"));
 
@@ -126,7 +130,7 @@ class RepositorioUsuarioTest {
 
     @Test
     void daoGenericoBuscaPorIdAEntidadeSalva() {
-        String login = loginUnico();
+        String login = gerarLoginUnico();
         Usuario usuario = new Usuario("Busca por id", "77788899900", "Feminino",
                 "1994-07-07", "77922221111", "busca-id@ifba.edu.br", login, "senhaForte1");
         repositorio.save(usuario);
@@ -134,5 +138,18 @@ class RepositorioUsuarioTest {
         Usuario encontrado = repositorio.findById(usuario.getId());
 
         assertEquals(login, encontrado.getLogin());
+    }
+
+    @Test
+    void daoGenericoUsaProvedorDeEntityManagerInjetado() {
+        AtomicInteger chamadasAoProvedor = new AtomicInteger();
+        GenericDaoImpl<Usuario> dao = new GenericDaoImpl<>(Usuario.class, () -> {
+            chamadasAoProvedor.incrementAndGet();
+            return JPAUtil.getEntityManager();
+        });
+
+        dao.findAll();
+
+        assertEquals(1, chamadasAoProvedor.get());
     }
 }

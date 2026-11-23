@@ -37,7 +37,8 @@ class UsuarioHerancaTest {
 
     @Test
     void alunoUsaSaudacaoHerdadaDeUsuarioSemAlteracao() {
-        assertEquals("Bem-vindo(a), Maria Silva!", aluno.saudacao());
+        Usuario usuario = aluno;
+        assertEquals("Bem-vindo(a), Maria Silva!", usuario.saudacao());
     }
 
     @Test
